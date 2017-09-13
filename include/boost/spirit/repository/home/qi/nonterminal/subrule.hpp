@@ -383,8 +383,13 @@ namespace boost { namespace spirit { namespace repository { namespace qi
             spirit::detail::extract_locals<template_params>::type
         locals_type;
 
+		// The rule's encoding type
         typedef typename
-            spirit::detail::extract_sig<template_params>::type
+            spirit::detail::extract_encoding<template_params>::type
+        encoding_type;
+
+        typedef typename
+            spirit::detail::extract_sig<template_params, encoding_type, spirit::qi::domain>::type
         sig_type;
 
         // This is the subrule's attribute type
